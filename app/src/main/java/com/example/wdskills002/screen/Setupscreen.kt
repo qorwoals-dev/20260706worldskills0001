@@ -1,5 +1,8 @@
 package com.example.wdskills002.screen
 import android.widget.Toast
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -26,6 +29,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -33,6 +37,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -46,11 +51,117 @@ import com.example.wdskills002.R
 import com.example.wdskills002.ui.theme.Wdskills002Theme
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+
 @Composable
-fun Setupscreen(startStep: Int = 1) {
+fun Introscreen(onStartClick: () -> Unit) {
+    val listColors = listOf(Color.Green, Color.Red, Color.White)
+    var visible by remember { mutableStateOf(false) }
+
+    // 화면이 켜지면 애니메이션 시작 트리거
+    LaunchedEffect(Unit) {
+        visible = true
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Brush.verticalGradient(listColors)),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Spacer(modifier = Modifier.height(70.dp))
+
+        // 1. 앱 로고 및 타이틀 영역 (1.5초 흐릿하게 페이드인)
+        AnimatedVisibility(
+            visible = visible,
+            enter = fadeIn(animationSpec = tween(durationMillis = 1500))
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(R.drawable.app_icon),
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.height(8.dp)) // 로고와 텍스트 사이 간격
+                Text("Camping Mate", fontSize = 25.sp)
+            }
+        }
+
+        Spacer(modifier = Modifier.height(70.dp))
+
+        // 2. 이미지 모음 영역 (2.5초 페이드인)
+        AnimatedVisibility(
+            visible = visible,
+            enter = fadeIn(animationSpec = tween(durationMillis = 2500))
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Image(
+                        painter = painterResource(R.drawable.img4),
+                        contentDescription = null
+                    )
+                    Spacer(modifier = Modifier.width(8.dp)) // 이미지 사이 간격
+                    Image(
+                        painter = painterResource(R.drawable.img4),
+                        contentDescription = null
+                    )
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Image(
+                    painter = painterResource(R.drawable.img4),
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Image(
+                    painter = painterResource(R.drawable.img6),
+                    contentDescription = null
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(50.dp))
+
+        // 3. 홍보 문구 영역 (2.5초 페이드인)
+        AnimatedVisibility(
+            visible = visible,
+            enter = fadeIn(animationSpec = tween(durationMillis = 2500))
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text("나에게 맞는", fontSize = 25.sp)
+                Text("캠핑을 찾아보세요.", fontSize = 25.sp)
+            }
+        }
+
+        Spacer(modifier = Modifier.height(70.dp))
+
+        // 4. 시작하기 버튼 영역 (3초 페이드인)
+        AnimatedVisibility(
+            visible = visible,
+            enter = fadeIn(animationSpec = tween(durationMillis = 3000))
+        ) {
+            Button(
+                modifier = Modifier
+                    .height(70.dp)
+                    .width(300.dp),
+                onClick = {onStartClick}
+            ) {
+                Text("시작하기", fontSize = 25.sp)
+                Spacer(modifier = Modifier.width(8.dp)) // 글자와 화살표 사이 간격
+                Image(
+                    painter = painterResource(R.drawable.arrowgo),
+                    contentDescription = null
+                )
+            }
+        }
+    }
+}
+@Composable
+fun Setupscreen(startStep: Int = 0) {
     var visible by remember { mutableStateOf(false) }
     var step by remember { mutableStateOf(startStep) }
     when(step){
+        0 -> Introscreen(onStartClick = {step = 1} )
         1 -> NameScr { step = 2 }
         2 -> CampExp(
             onNext = {step = 3},
@@ -1243,6 +1354,6 @@ fun Info(onNext: () -> Unit, onBack: () -> Unit){
 @Preview(showBackground = true)
 @Composable
 fun NamePreview() {
-    NameScr(onNext = {})
+    Introscreen(onStartClick = {})
 
 }

@@ -215,8 +215,6 @@ fun PoinCharge(){
     }
 }
 
-
-
 @Composable
 fun HomeScr(){
     Column(
@@ -366,7 +364,6 @@ fun HomeScr(){
 
     }
 }
-
 
 
 
