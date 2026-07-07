@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.sp
 import com.example.wdskills002.R
 
 @Composable
-fun HomeScr(){
+fun PoinCharge(){
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -42,10 +42,22 @@ fun HomeScr(){
             modifier = Modifier
                 .padding(10.dp)
                 .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.Start
         ) {
-            Text("My", fontSize = 30.sp, color = Color.Black)
-            Text("10 Points", fontSize = 30.sp, color = Color.Gray)
+            Button(
+                modifier = Modifier
+                    .width(110.dp)
+                    .height(50.dp),
+                onClick = {}
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.arrowback),
+                    contentDescription = null
+                )
+                Text("이전", color = Color.Black)
+
+            }
+
         }
         Column(
             modifier = Modifier
@@ -58,6 +70,23 @@ fun HomeScr(){
             )
             Text("Camping Mate", fontSize = 20.sp, color = Color.Black)
             Spacer(modifier = Modifier.height(30.dp))
+            Row() {
+                Text("포인트 충전", fontSize = 30.sp, color = Color.Black)
+                Image(
+                    painter = painterResource(R.drawable.img7),
+                    contentDescription = null
+                )
+            }
+
+
+
+
+
+
+
+
+
+
 
             Button(
                 modifier = Modifier
@@ -67,124 +96,129 @@ fun HomeScr(){
                 colors = ButtonDefaults.buttonColors(containerColor = Color.White),
                 onClick = {}
             ) {
-                Image(
-                    painter = painterResource(R.drawable.img3),
-                    contentDescription = null
-                )
-                Spacer(modifier = Modifier.width(15.dp))
+
                 Column(
+                    modifier = Modifier
+                        .fillMaxWidth(),
 
                 ) {
-                    Text("나의 캠핑 스타일", color = Color.Black)
                     Row(
-
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center
                     ) {
-                        Text("{숙박유형}", color = Color.Black)
-                        Spacer(modifier = Modifier.width(20.dp))
-                        Text("{인원}", color = Color.Black)
+                        Image(
+                            painter = painterResource(R.drawable.img7),
+                            contentDescription = null
+                        )
+                        Text("10 Points", color = Color.Black)
+                    }
+
+                    Button(
+                        onClick = {}
+                    ) {
+
                     }
                 }
 
             }
-        }
-
-        Row(
-            modifier = Modifier
-                .padding(10.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.End
-        ) {
-            TextButton(
-                onClick = {}
-            ) {
-                Text("추천 받기", fontSize = 20.sp, color = Color.Black)
-
-            }
-        }
-        Spacer(modifier = Modifier.height(10.dp))
-        LazyRow(
-            modifier = Modifier
-                .padding(20.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            items(1) {
-                Card(
-                    modifier = Modifier
-                        .height(150.dp)
-                        .width(130.dp),
-
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.app_icon),
-                        contentDescription = null
-                    )
-                    Text("[캠핑 리스트]")
-                }
-            }
-
-            items(1) {
-                Card(
-                    modifier = Modifier
-                        .height(150.dp)
-                        .width(130.dp),
-
-                    ) {
-                    Image(
-                        painter = painterResource(R.drawable.app_icon),
-                        contentDescription = null
-                    )
-                    Text("[캠핑 리스트]")
-                }
-            }
-            items(1) {
-                Card(
-                    modifier = Modifier
-                        .height(150.dp)
-                        .width(130.dp),
-
-                    ) {
-                    Image(
-                        painter = painterResource(R.drawable.app_icon),
-                        contentDescription = null
-                    )
-                    Text("[캠핑 리스트]")
-                }
-            }
-        }
-        Spacer(modifier = Modifier.height(50.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
-        ) {
+            Spacer(modifier = Modifier.height(10.dp))
             Button(
                 modifier = Modifier
-                    .height(70.dp)
-                    .width(300.dp),
-                onClick = {}
+                    .height(50.dp)
+                    .width(330.dp),
+                onClick = {},
+                colors = ButtonDefaults.buttonColors(containerColor = Color.White)
             ) {
-                Spacer(modifier = Modifier.width(50.dp))
-                Text("포인트 충전", color = Color.White, fontSize = 25.sp)
-                Spacer(modifier = Modifier.width(20.dp))
                 Image(
-                    painter = painterResource(R.drawable.arrowgo),
+                    painter = painterResource(R.drawable.img7),
                     contentDescription = null
                 )
+                Spacer(modifier = Modifier.width(40.dp))
+                Text("포인트 30개", fontSize = 20.sp, color = Color.Black)
+                Spacer(modifier = Modifier.width(40.dp))
+                Text("300원", fontSize = 20.sp, color = Color.Black)
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(
+                modifier = Modifier
+                    .height(50.dp)
+                    .width(330.dp),
+                onClick = {},
+                colors = ButtonDefaults.buttonColors(containerColor = Color.White)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.img7),
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(40.dp))
+                Text("포인트 50개", fontSize = 20.sp, color = Color.Black)
+                Spacer(modifier = Modifier.width(40.dp))
+                Text("500원", fontSize = 20.sp, color = Color.Black)
+            }
 
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(
+                modifier = Modifier
+                    .height(50.dp)
+                    .width(330.dp),
+                onClick = {},
+                colors = ButtonDefaults.buttonColors(containerColor = Color.White)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.img7),
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(40.dp))
+                Text("포인트 100개", fontSize = 20.sp, color = Color.Black)
+                Spacer(modifier = Modifier.width(30.dp))
+                Text("1,000원", fontSize = 15.sp, color = Color.Black)
+            }
+
+
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(
+                modifier = Modifier
+                    .height(50.dp)
+                    .width(330.dp),
+                onClick = {},
+                colors = ButtonDefaults.buttonColors(containerColor = Color.White)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.img7),
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(40.dp))
+                Text("포인트 200개", fontSize = 20.sp, color = Color.Black)
+                Spacer(modifier = Modifier.width(30.dp))
+                Text("2,000원", fontSize = 15.sp, color = Color.Black)
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(
+                modifier = Modifier
+                    .height(50.dp)
+                    .width(330.dp),
+                onClick = {},
+                colors = ButtonDefaults.buttonColors(containerColor = Color.White)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.img7),
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(40.dp))
+                Text("포인트 300개", fontSize = 20.sp, color = Color.Black)
+                Spacer(modifier = Modifier.width(30.dp))
+                Text("3,000원", fontSize = 15.sp, color = Color.Black)
             }
         }
-
-
-
-
     }
 }
 
 
 
 @Composable
-fun PoinCharge(){
+fun HomeScr(){
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -342,6 +376,6 @@ fun PoinCharge(){
 @Preview(showBackground = true)
 @Composable
 fun HomePreview() {
-    HomeScr()
+    PoinCharge()
 
 }
