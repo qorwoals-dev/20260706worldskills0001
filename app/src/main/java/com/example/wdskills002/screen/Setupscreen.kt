@@ -144,7 +144,7 @@ fun Introscreen(onStartClick: () -> Unit) {
                 modifier = Modifier
                     .height(70.dp)
                     .width(300.dp),
-                onClick = {onStartClick}
+                onClick = {onStartClick()}
             ) {
                 Text("시작하기", fontSize = 25.sp)
                 Spacer(modifier = Modifier.width(8.dp)) // 글자와 화살표 사이 간격
