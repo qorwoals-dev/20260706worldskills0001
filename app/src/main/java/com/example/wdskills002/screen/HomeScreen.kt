@@ -1,5 +1,6 @@
 package com.example.wdskills002.screen
 
+import android.text.Layout
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -12,9 +13,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -98,11 +101,243 @@ fun HomeScr(){
 
             }
         }
+        Spacer(modifier = Modifier.height(10.dp))
+        LazyRow(
+            modifier = Modifier
+                .padding(20.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            items(1) {
+                Card(
+                    modifier = Modifier
+                        .height(150.dp)
+                        .width(130.dp),
+
+                ) {
+                    Image(
+                        painter = painterResource(R.drawable.app_icon),
+                        contentDescription = null
+                    )
+                    Text("[캠핑 리스트]")
+                }
+            }
+
+            items(1) {
+                Card(
+                    modifier = Modifier
+                        .height(150.dp)
+                        .width(130.dp),
+
+                    ) {
+                    Image(
+                        painter = painterResource(R.drawable.app_icon),
+                        contentDescription = null
+                    )
+                    Text("[캠핑 리스트]")
+                }
+            }
+            items(1) {
+                Card(
+                    modifier = Modifier
+                        .height(150.dp)
+                        .width(130.dp),
+
+                    ) {
+                    Image(
+                        painter = painterResource(R.drawable.app_icon),
+                        contentDescription = null
+                    )
+                    Text("[캠핑 리스트]")
+                }
+            }
+        }
+        Spacer(modifier = Modifier.height(50.dp))
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Button(
+                modifier = Modifier
+                    .height(70.dp)
+                    .width(300.dp),
+                onClick = {}
+            ) {
+                Spacer(modifier = Modifier.width(50.dp))
+                Text("포인트 충전", color = Color.White, fontSize = 25.sp)
+                Spacer(modifier = Modifier.width(20.dp))
+                Image(
+                    painter = painterResource(R.drawable.arrowgo),
+                    contentDescription = null
+                )
+
+            }
+        }
+
 
 
 
     }
 }
+
+
+
+@Composable
+fun PoinCharge(){
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.Green),
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(10.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text("My", fontSize = 30.sp, color = Color.Black)
+            Text("10 Points", fontSize = 30.sp, color = Color.Gray)
+        }
+        Column(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Image(
+                painter = painterResource(R.drawable.app_icon),
+                contentDescription = null
+            )
+            Text("Camping Mate", fontSize = 20.sp, color = Color.Black)
+            Spacer(modifier = Modifier.height(30.dp))
+
+            Button(
+                modifier = Modifier
+                    .height(90.dp)
+                    .width(320.dp),
+                shape = RoundedCornerShape(20.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.White),
+                onClick = {}
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.img3),
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(15.dp))
+                Column(
+
+                ) {
+                    Text("나의 캠핑 스타일", color = Color.Black)
+                    Row(
+
+                    ) {
+                        Text("{숙박유형}", color = Color.Black)
+                        Spacer(modifier = Modifier.width(20.dp))
+                        Text("{인원}", color = Color.Black)
+                    }
+                }
+
+            }
+        }
+
+        Row(
+            modifier = Modifier
+                .padding(10.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.End
+        ) {
+            TextButton(
+                onClick = {}
+            ) {
+                Text("추천 받기", fontSize = 20.sp, color = Color.Black)
+
+            }
+        }
+        Spacer(modifier = Modifier.height(10.dp))
+        LazyRow(
+            modifier = Modifier
+                .padding(20.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            items(1) {
+                Card(
+                    modifier = Modifier
+                        .height(150.dp)
+                        .width(130.dp),
+
+                    ) {
+                    Image(
+                        painter = painterResource(R.drawable.app_icon),
+                        contentDescription = null
+                    )
+                    Text("[캠핑 리스트]")
+                }
+            }
+
+            items(1) {
+                Card(
+                    modifier = Modifier
+                        .height(150.dp)
+                        .width(130.dp),
+
+                    ) {
+                    Image(
+                        painter = painterResource(R.drawable.app_icon),
+                        contentDescription = null
+                    )
+                    Text("[캠핑 리스트]")
+                }
+            }
+            items(1) {
+                Card(
+                    modifier = Modifier
+                        .height(150.dp)
+                        .width(130.dp),
+
+                    ) {
+                    Image(
+                        painter = painterResource(R.drawable.app_icon),
+                        contentDescription = null
+                    )
+                    Text("[캠핑 리스트]")
+                }
+            }
+        }
+        Spacer(modifier = Modifier.height(50.dp))
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Button(
+                modifier = Modifier
+                    .height(70.dp)
+                    .width(300.dp),
+                onClick = {}
+            ) {
+                Spacer(modifier = Modifier.width(50.dp))
+                Text("포인트 충전", color = Color.White, fontSize = 25.sp)
+                Spacer(modifier = Modifier.width(20.dp))
+                Image(
+                    painter = painterResource(R.drawable.arrowgo),
+                    contentDescription = null
+                )
+
+            }
+        }
+
+
+
+
+    }
+}
+
+
+
+
+
+
 
 @Preview(showBackground = true)
 @Composable
