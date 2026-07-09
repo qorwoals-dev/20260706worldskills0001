@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.wdskills002.screen.HomeScr
 import com.example.wdskills002.screen.Introscreen
 import com.example.wdskills002.screen.NameScr
 import com.example.wdskills002.screen.Setupscreen
@@ -22,7 +23,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Wdskills002Theme {
-                Setupscreen()
+                HomeScr()
             }
         }
     }

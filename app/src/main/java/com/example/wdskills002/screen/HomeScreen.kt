@@ -224,7 +224,7 @@ fun HomeScr(){
     ) {
         Row(
             modifier = Modifier
-                .padding(20.dp)
+                .padding(25.dp)
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -292,49 +292,36 @@ fun HomeScr(){
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(1) {
+            items(3) {
                 Card(
                     modifier = Modifier
                         .height(150.dp)
                         .width(130.dp),
 
+
                     ) {
-                    Image(
-                        painter = painterResource(R.drawable.app_icon),
-                        contentDescription = null
-                    )
-                    Text("[캠핑 리스트]")
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Image(
+                            modifier = Modifier
+                                .height(120.dp)
+                                .padding(10.dp)
+                                .background(color = Color.White),
+                            painter = painterResource(R.drawable.app_icon),
+                            contentDescription = null
+
+                        )
+                        Text("[캠핑 리스트]")
+
+                    }
+
                 }
             }
 
-            items(1) {
-                Card(
-                    modifier = Modifier
-                        .height(150.dp)
-                        .width(130.dp),
 
-                    ) {
-                    Image(
-                        painter = painterResource(R.drawable.app_icon),
-                        contentDescription = null
-                    )
-                    Text("[캠핑 리스트]")
-                }
-            }
-            items(1) {
-                Card(
-                    modifier = Modifier
-                        .height(150.dp)
-                        .width(130.dp),
-
-                    ) {
-                    Image(
-                        painter = painterResource(R.drawable.app_icon),
-                        contentDescription = null
-                    )
-                    Text("[캠핑 리스트]")
-                }
-            }
         }
         Spacer(modifier = Modifier.height(50.dp))
         Row(
