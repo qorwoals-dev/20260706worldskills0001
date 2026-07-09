@@ -224,7 +224,7 @@ fun HomeScr(){
     ) {
         Row(
             modifier = Modifier
-                .padding(10.dp)
+                .padding(20.dp)
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -365,14 +365,9 @@ fun HomeScr(){
     }
 }
 
-
-
-
-
-
 @Preview(showBackground = true)
 @Composable
 fun HomePreview() {
-    PoinCharge()
+    HomeScr()
 
 }

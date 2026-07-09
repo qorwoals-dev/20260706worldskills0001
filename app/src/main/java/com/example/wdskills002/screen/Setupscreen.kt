@@ -48,6 +48,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.wdskills002.R
+import com.example.wdskills002.core.campingmate
 import com.example.wdskills002.ui.theme.Wdskills002Theme
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -162,7 +163,10 @@ fun Setupscreen(startStep: Int = 0) {
     var step by remember { mutableStateOf(startStep) }
     when(step){
         0 -> Introscreen(onStartClick = {step = 1} )
-        1 -> NameScr { step = 2 }
+        1 -> NameScr(
+            onNext = { step = 2},
+            onBack = { step = 0}
+        )
         2 -> CampExp(
             onNext = {step = 3},
             onBack = {step = 1}
@@ -188,6 +192,7 @@ fun Setupscreen(startStep: Int = 0) {
             onNext = {step = 8},
             onBack = {step = 6}
         )
+        8 -> HomeScr()
     }
 
 }
@@ -203,8 +208,12 @@ fun progressbar(progress : Float){
     )
 
 }
+
+
+
 @Composable
-fun NameScr(onNext: () -> Unit){
+fun NameScr(onBack: () -> Unit, onNext: () -> Unit){
+    var context = LocalContext.current
     var username by remember { mutableStateOf("") }
     Column(
         modifier = Modifier
@@ -248,13 +257,15 @@ fun NameScr(onNext: () -> Unit){
                     .height(60.dp)
                     .width(150.dp)
                     .padding(start = 20.dp),
-                onClick = {}
+                onClick = {
+                    onBack()
+                }
             ) {
                 Image(
                     painter = painterResource(R.drawable.arrowback),
                     contentDescription = null
                 )
-                Text("이전", fontSize = 25.sp)
+                Text("이전", fontSize = 20.sp)
 
             }
             if(username.isNotEmpty()){
@@ -264,7 +275,14 @@ fun NameScr(onNext: () -> Unit){
                         .width(150.dp)
                         .padding(end = 20.dp),
                     onClick = {
-                        onNext()
+                        if(username.length < 2 || username.length > 12){
+                            Toast.makeText(context,"닉네임은 2자 ~ 12자 까지 가능", Toast.LENGTH_SHORT).show()
+                        }
+                        else{
+                            campingmate.name = username
+                            onNext()
+                        }
+
                     }
                 ) {
                     Text("다음", fontSize = 20.sp)
@@ -393,7 +411,7 @@ fun CampExp(onNext: () -> Unit, onBack: () -> Unit){
                     painter = painterResource(R.drawable.arrowback),
                     contentDescription = null
                 )
-                Text("이전", fontSize = 25.sp)
+                Text("이전", fontSize = 20.sp)
 
             }
             if(campexp.isNotEmpty()){
@@ -403,6 +421,7 @@ fun CampExp(onNext: () -> Unit, onBack: () -> Unit){
                         .width(150.dp)
                         .padding(end = 20.dp),
                     onClick = {
+                        campingmate.campexp = campexp
                         onNext()
                     }
                 ) {
@@ -454,6 +473,7 @@ fun CampPerson(onNext: () -> Unit, onBack: () -> Unit){
                     .height(200.dp)
                     .width(80.dp),
                 onClick = {
+                    if(preson > 1)
                     preson--
 
                 }
@@ -487,7 +507,10 @@ fun CampPerson(onNext: () -> Unit, onBack: () -> Unit){
                     .height(200.dp)
                     .width(80.dp),
                 onClick = {
-                    preson++
+                    if(preson < 6){
+                        preson++
+                    }
+
 
                 }
             ) {
@@ -531,7 +554,7 @@ fun CampPerson(onNext: () -> Unit, onBack: () -> Unit){
                     painter = painterResource(R.drawable.arrowback),
                     contentDescription = null
                 )
-                Text("이전", fontSize = 25.sp)
+                Text("이전", fontSize = 20.sp)
 
             }
             if(preson > 0){
@@ -541,10 +564,11 @@ fun CampPerson(onNext: () -> Unit, onBack: () -> Unit){
                         .width(150.dp)
                         .padding(end = 20.dp),
                     onClick = {
+                        campingmate.personc = preson
                         onNext()
                     }
                 ) {
-                    Text("다음", fontSize = 25.sp)
+                    Text("다음", fontSize = 20.sp)
                     Image(
                         painter = painterResource(R.drawable.arrowgo),
                         contentDescription = null
@@ -695,11 +719,11 @@ fun PreType(onNext: () -> Unit, onBack: () -> Unit){
                     .width(150.dp),
                 shape = RoundedCornerShape(15.dp),
                 onClick = {
-                    pretype = "오토캠핑"
+                    pretype = "차박"
 
                 },
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = if(pretype == "오토캠핑") Color.White else Color.Gray
+                    containerColor = if(pretype == "차박") Color.White else Color.Gray
                 ),
             ) {
                 Column(
@@ -744,7 +768,7 @@ fun PreType(onNext: () -> Unit, onBack: () -> Unit){
                     painter = painterResource(R.drawable.arrowback),
                     contentDescription = null
                 )
-                Text("이전", fontSize = 25.sp)
+                Text("이전", fontSize = 20.sp)
 
             }
             if(pretype.isNotEmpty()){
@@ -754,10 +778,11 @@ fun PreType(onNext: () -> Unit, onBack: () -> Unit){
                         .width(150.dp)
                         .padding(end = 20.dp),
                     onClick = {
+                        campingmate.pretype = pretype
                         onNext()
                     }
                 ) {
-                    Text("다음", fontSize = 25.sp)
+                    Text("다음", fontSize = 20.sp)
                     Image(
                         painter = painterResource(R.drawable.arrowgo),
                         contentDescription = null
@@ -948,7 +973,7 @@ fun Checkin(onNext: () -> Unit, onBack: () -> Unit) {
                     painter = painterResource(R.drawable.arrowback),
                     contentDescription = null
                 )
-                Text("이전", fontSize = 25.sp)
+                Text("이전", fontSize = 20.sp)
 
             }
             if(selectDay.toString().isNotEmpty()){
@@ -961,7 +986,7 @@ fun Checkin(onNext: () -> Unit, onBack: () -> Unit) {
                         onNext()
                     }
                 ) {
-                    Text("다음", fontSize = 25.sp)
+                    Text("다음", fontSize = 20.sp)
                     Image(
                         painter = painterResource(R.drawable.arrowgo),
                         contentDescription = null
@@ -973,6 +998,8 @@ fun Checkin(onNext: () -> Unit, onBack: () -> Unit) {
         }
 
         Spacer(modifier = Modifier.height(20.dp))
+
+        progressbar(progress = 0.7F)
 
 
     }
@@ -1122,6 +1149,7 @@ fun Preact(onNext: () -> Unit, onBack: () -> Unit){
                         .width(150.dp)
                         .padding(end = 20.dp),
                     onClick = {
+                        campingmate.preact = preact
                         onNext()
                     }
                 ) {
@@ -1179,7 +1207,7 @@ fun Info(onNext: () -> Unit, onBack: () -> Unit){
                 color = Color.Black
             )
             Spacer(modifier = Modifier.width(40.dp))
-            Text("닉네임")
+            Text(campingmate.name)
             Image(
                 painter = painterResource(R.drawable.arrowgo),
                 contentDescription = null,
@@ -1207,7 +1235,7 @@ fun Info(onNext: () -> Unit, onBack: () -> Unit){
                 color = Color.Black
             )
             Spacer(modifier = Modifier.width(40.dp))
-            Text("오토캠핑")
+            Text(campingmate.campexp)
             Image(
                 painter = painterResource(R.drawable.arrowgo),
                 contentDescription = null,
@@ -1235,7 +1263,7 @@ fun Info(onNext: () -> Unit, onBack: () -> Unit){
                 color = Color.Black
             )
             Spacer(modifier = Modifier.width(40.dp))
-            Text("1원")
+            Text(campingmate.personc.toString() + "명")
             Image(
                 painter = painterResource(R.drawable.arrowgo),
                 contentDescription = null,
@@ -1263,7 +1291,7 @@ fun Info(onNext: () -> Unit, onBack: () -> Unit){
                 color = Color.Black
             )
             Spacer(modifier = Modifier.width(40.dp))
-            Text("글램반")
+            Text(campingmate.pretype)
             Image(
                 painter = painterResource(R.drawable.arrowgo),
                 contentDescription = null,
@@ -1319,7 +1347,7 @@ fun Info(onNext: () -> Unit, onBack: () -> Unit){
                 color = Color.Black
             )
             Spacer(modifier = Modifier.width(40.dp))
-            Text("힐링")
+            Text(campingmate.preact)
             Image(
                 painter = painterResource(R.drawable.arrowgo),
                 contentDescription = null,
@@ -1354,6 +1382,6 @@ fun Info(onNext: () -> Unit, onBack: () -> Unit){
 @Preview(showBackground = true)
 @Composable
 fun NamePreview() {
-    Introscreen(onStartClick = {})
+    Setupscreen(startStep = 7)
 
 }
