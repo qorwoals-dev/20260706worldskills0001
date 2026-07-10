@@ -6,4 +6,5 @@ object campingmate{
     var personc : Int = 1
     var pretype : String = ""
     var preact : String = ""
+    var point : Int = 10
 }
