@@ -1,0 +1,137 @@
+[
+  {
+    "id": "res_01",
+    "campground_id": "camp_01",
+    "name": "강원 포레스트 캠핑장",
+    "available_dates": [
+      "2026-05-19",
+      "2026-05-20",
+      "2026-05-21"
+    ],
+    "price_per_night": 75000,
+    "capacity": 3,
+    "lodging_type": "오토캠핑",
+    "region": "강원",
+    "is_available": true
+  },
+  {
+    "id": "res_02",
+    "campground_id": "camp_02",
+    "name": "경기 포레스트 캠핑장",
+    "available_dates": [
+      "2026-05-19",
+      "2026-05-20",
+      "2026-05-21"
+    ],
+    "price_per_night": 80000,
+    "capacity": 4,
+    "lodging_type": "글램핑",
+    "region": "경기",
+    "is_available": true
+  },
+  {
+    "id": "res_03",
+    "campground_id": "camp_03",
+    "name": "충북 포레스트 캠핑장",
+    "available_dates": [
+      "2026-05-19",
+      "2026-05-20",
+      "2026-05-21"
+    ],
+    "price_per_night": 85000,
+    "capacity": 5,
+    "lodging_type": "카라반",
+    "region": "충북",
+    "is_available": true
+  },
+  {
+    "id": "res_04",
+    "campground_id": "camp_04",
+    "name": "전북 포레스트 캠핑장",
+    "available_dates": [
+      "2026-05-19",
+      "2026-05-20",
+      "2026-05-21"
+    ],
+    "price_per_night": 90000,
+    "capacity": 6,
+    "lodging_type": "차박",
+    "region": "전북",
+    "is_available": false
+  },
+  {
+    "id": "res_05",
+    "campground_id": "camp_05",
+    "name": "경북 포레스트 캠핑장",
+    "available_dates": [
+      "2026-05-19",
+      "2026-05-20",
+      "2026-05-21"
+    ],
+    "price_per_night": 95000,
+    "capacity": 2,
+    "lodging_type": "오토캠핑",
+    "region": "경북",
+    "is_available": true
+  },
+  {
+    "id": "res_06",
+    "campground_id": "camp_06",
+    "name": "제주 포레스트 캠핑장",
+    "available_dates": [
+      "2026-05-19",
+      "2026-05-20",
+      "2026-05-21"
+    ],
+    "price_per_night": 100000,
+    "capacity": 3,
+    "lodging_type": "글램핑",
+    "region": "제주",
+    "is_available": true
+  },
+  {
+    "id": "res_07",
+    "campground_id": "camp_07",
+    "name": "충남 포레스트 캠핑장",
+    "available_dates": [
+      "2026-05-19",
+      "2026-05-20",
+      "2026-05-21"
+    ],
+    "price_per_night": 105000,
+    "capacity": 4,
+    "lodging_type": "카라반",
+    "region": "충남",
+    "is_available": true
+  },
+  {
+    "id": "res_08",
+    "campground_id": "camp_08",
+    "name": "전남 포레스트 캠핑장",
+    "available_dates": [
+      "2026-05-19",
+      "2026-05-20",
+      "2026-05-21"
+    ],
+    "price_per_night": 110000,
+    "capacity": 5,
+    "lodging_type": "차박",
+    "region": "전남",
+    "is_available": true
+  },
+  {
+    "id": "res_09",
+    "campground_id": "camp_09",
+    "name": "경남 포레스트 캠핑장",
+    "available_dates": [
+      "2026-05-19",
+      "2026-05-20",
+      "2026-05-21"
+    ],
+    "price_per_night": 115000,
+    "capacity": 6,
+    "lodging_type": "오토캠핑",
+    "region": "경남",
+    "is_available": true
+  }
+]
