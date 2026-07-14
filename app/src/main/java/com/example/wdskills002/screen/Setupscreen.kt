@@ -192,7 +192,7 @@ fun Setupscreen(startStep: Int = 0) {
             onNext = {step = 8},
             onBack = {step = 6}
         )
-        8 -> HomeScr()
+        8 -> HomeCon()
     }
 
 }
